@@ -88,14 +88,14 @@ Como debemos saber la IP de nuestro contenedor mysql para luego conectarlo con l
 docker inspect mimsql
 ```
 ![Ip del mysql](./img/consultaIP.png).
-Esta dirección  IP cambia cada vez que el contenedor se reinicia. Por lo tanto, deberemos consultar esta dirección cada vez que reiniciemos nuestro contenedor y hacer los cambios necesarios que reflejen tal cambio.
+Esta dirección  IP cambia cada vez que el contenedor se reinicia. Por lo tanto, deberemos consultar esta dirección cada vez que reiniciemos nuestro contenedor y hacer los cambios necesarios en nuestro código del servidor que reflejen tal variación y podamos conectarnos a la base de datos desde nuestro server.
 
 #### 2do. Contenedor del servidor 1 de php:apache **corriendo Node.js**
 
 Antes de crear el contenedor debemos tener en cuenta algunas configuraciones.
 ##### Configuración de la conexión 
 En este paso debemos asegurarnos de que nuestro servidor tendrá una parte de código donde debemos configurar la conexión a la base de datos (al contenedor de nuestro sistema gestor de bases de datos).
-La configuración es:
+La configuración es (ver fichero ![server.js](./server/server.js)):
 ```
 // Configuración de la conexión a la base de datos MySQL
 const db = mysql.createConnection({
@@ -128,7 +128,7 @@ Vemos que estamos creando un volumen, que persistirá los datos del sistema de a
 
 ###### Importante:
 Es en esta ruta (`C:\sitio1`) donde deberá estar alojado el servidor de **NodeJS**. Así el contenedor del servidor creado podrá servir nuestro sitio web que se conectará con la base de datos del contenedor mysql.
-Atendiendo lo anterior, procedemos a copiar los ficheros (que se encuentran en este repositorio): `package.json`, `package-lock.json` y `server.js`  al directorio `C:\sitio1`.
+Atendiendo lo anterior, procedemos a copiar los ficheros (que se encuentran en este repositorio): ![`package.json`](./server/package.json), ![`package-lock.json`](./server/package-lock.json) y ![`server.js`](./server/server.js)  al directorio `C:\sitio1`.
 
 ##### Configuración del contenedor
 
@@ -201,7 +201,7 @@ docker inspect Srv1
 Antes de crear el contenedor debemos tener en cuenta algunas configuraciones.
 ##### Configuración de la conexión 
 En este paso debemos asegurarnos de que nuestro servidor tendrá una parte de código donde debemos configurar la conexión a la base de datos (al contenedor de nuestro sistema gestor de bases de datos).
-La configuración es:
+La configuración es:(ver fichero ![server.js](./server/server.js)):
 ```
 // Configuración de la conexión a la base de datos MySQL
 const db = mysql.createConnection({

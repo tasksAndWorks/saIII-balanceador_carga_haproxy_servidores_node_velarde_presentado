@@ -1,17 +1,14 @@
-
 const express = require('express');
 const mysql = require('mysql2');
 
-
 const app = express();
-const port = 3000;
+const port = 81;
 
-// Configuración de la conexión a la base de datos MySQL
 const db = mysql.createConnection({
-    host: '172.17.0.2',
-    user: 'root',
-    password: 'pass',
-    database: 'prueba',
+	host: "172.17.0.2",
+	user: 'root',
+	password: 'pass',
+	database: 'prueba',
 });
 
 // Conectar a la base de datos MySQL
@@ -22,10 +19,6 @@ db.connect((err) => {
     }
     console.log('Conexión exitosa a la base de datos MySQL');
 });
-
-// app.use(express.static('public'));
-// app.use(express.static(path.join(__dirname, 'public')));
-
 
 // Ruta raíz que realiza una consulta SQL y responde con una tabla HTML
 app.get('/', (req, res) => {
@@ -40,7 +33,7 @@ app.get('/', (req, res) => {
         }
 
         // Genera la tabla HTML con los datos de la consulta
-        let tableHtml = '<table><tr><th>ID</th><th>Apellidos</th><th>Nombres</th><th>DNI</th></tr>';
+        let tableHtml = '<table><tr><th>ID</th><th>Apellidos 1</th><th>Nombres</th><th>DNI</th></tr>';
         result.forEach((row) => {
             tableHtml += `<tr><td>${row.id}</td><td>${row.apellidos}</td><td>${row.nombres}</td><td>${row.dni}</td></tr>`;
         });
@@ -55,3 +48,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}. Ir a http://localhost:${port}`);
 });
+
