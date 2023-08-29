@@ -128,7 +128,7 @@ Vemos que estamos creando un volumen, que persistirá los datos del sistema de a
 
 ###### Importante:
 Es en esta ruta (`C:\sitio1`) donde deberá estar alojado el servidor de **NodeJS**. Así el contenedor del servidor creado podrá servir nuestro sitio web que se conectará con la base de datos del contenedor mysql.
-Atendiendo lo anterior, procedemos a copiar los ficheros (que se encuentran en este repositorio): ![`package.json`](./server/package.json), ![`package-lock.json`](./server/package-lock.json) y ![`server.js`](./server/server.js)  al directorio `C:\sitio1`.
+Atendiendo lo anterior, procedemos a **copiar los ficheros** (que se encuentran en este repositorio): ![`package.json`](./server/package.json), ![`package-lock.json`](./server/package-lock.json) y ![`server.js`](./server/server.js)  al directorio `C:\sitio1`.
 
 ##### Configuración del contenedor
 
@@ -148,7 +148,7 @@ apt-get update
 Observamos que los ficheros previamente copiados se encuentran dentro del servidor.
 ![Verificación copia de fichero](./img/copiaFicheros.png)
 
-El fichero `server.js` es el encargado de crear el servidor y hacer la conexión a la base de datos.
+El fichero ![`server.js`](./server/server.js) es el encargado de crear el servidor y hacer la conexión a la base de datos.
 En esta parte se hizo un simple servidor con NodeJS utilizando las bibliotecas **express** y **mysql** para producción, y **nodemon** como dependencia de desarrollo.
 
 Ahora debemos instalar ciertos paquetes o "**drivers**" en este contenedor para que el servidor tenga la capacidad de ejecutar NodeJS:
@@ -234,7 +234,7 @@ Vemos que estamos creando un volumen, que persistirá los datos del sistema de a
 
 ###### Importante:
 Es en esta ruta (`C:\sitio2`) donde deberá estar alojado el servidor de **NodeJS**. Así el contenedor del servidor creado podrá servir nuestro sitio web que se conectará con la base de datos del contenedor mysql.
-Atendiendo lo anterior, procedemos a **copiar los ficheros** (que se encuentran en este repositorio): `package.json`, `package-lock.json` y `server.js` al directorio `C:\sitio2`.
+Atendiendo lo anterior, procedemos a **copiar los ficheros** (que se encuentran en este repositorio): ![`package.json`](./server/package.json), ![`package-lock.json`](./server/package-lock.json) y ![`server.js`](./server/server.js) al directorio `C:\sitio2`.
 
 ##### Configuración del contenedor
 
@@ -253,7 +253,7 @@ apt-get update
 Observamos que los ficheros previamente copiados se encuentran dentro del servidor.
 ![Verificación copia de fichero](./img/copiaFicheros.png)
 
-El fichero `server.js` es el encargado de crear el servidor y hacer la conexión a la base de datos.
+El fichero ![`server.js`](./server/server.js) es el encargado de crear el servidor y hacer la conexión a la base de datos.
 En esta parte se hizo un simple servidor con NodeJS utilizando las bibliotecas **express** y **mysql** para producción, y **nodemon** como dependencia de desarrollo.
 
 Ahora debemos instalar ciertos paquetes o "**drivers**" en este contenedor para que el servidor tenga la capacidad de ejecutar NodeJS:
