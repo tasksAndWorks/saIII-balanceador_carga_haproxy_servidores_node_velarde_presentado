@@ -231,7 +231,7 @@ Vemos que estamos creando un volumen, que persistirá los datos del sistema de a
 
 ###### Importante:
 Es en esta ruta (`C:\sitio2`) donde deberá estar alojado el servidor de **NodeJS**. Así el contenedor del servidor creado podrá servir nuestro sitio web que se conectará con la base de datos del contenedor mysql.
-Atendiendo lo anterior, procedemos a **copiar los ficheros**: `package.json`, `package-lock.json` y `server.js` al directorio `C:\sitio2`.
+Atendiendo lo anterior, procedemos a **copiar los ficheros** (que se encuentran en este repositorio): `package.json`, `package-lock.json` y `server.js` al directorio `C:\sitio2`.
 
 ##### Configuración del contenedor
 
@@ -249,6 +249,9 @@ apt-get update
 
 Observamos que los ficheros previamente copiados se encuentran dentro del servidor.
 ![Verificación copia de fichero](./img/copiaFicheros.png)
+
+El fichero `server.js` es el encargado de crear el servidor y hacer la conexión a la base de datos.
+En esta parte se hizo un simple servidor con NodeJS utilizando las bibliotecas **express** y **mysql** para producción, y **nodemon** como dependencia de desarrollo.
 
 Ahora debemos instalar ciertos paquetes o "**drivers**" en este contenedor para que el servidor tenga la capacidad de ejecutar NodeJS:
 
@@ -345,12 +348,23 @@ Es en esta ruta (`C:\volumenBalanceador`) donde deberá estar alojado el fichero
 
 ##### Comprobaciones
 Ingresamos a los contenedores de los servidores, y ejecutamos lo servidores:
+Los comando a ejecutar son:
+```
+docker exec -it Srv1 bash
+npm run dev
+```
 ![Inicio Servidor 1](./img/inicioSrv1.png)
 
+```
+docker exec -it Srv2 bash
+npm run dev
+```
 ![Inicio Servidor 2](./img/inicioSrv2.png)
 
 Nos dirigimos a la barra de navegación de nuestro explorador favorito e ingresamos a: `http://localhost:8085`:
+Cada vez ue actualizamos la página, observamos que el balanceador hace su trabajo y nos envía las respuestas del servidor 1, luego, al actualizar nuevamente la página la respuesta que recibimos es la del servidor 2; y así sucesivamente de manera secuencial y alternada.
 
+* Nota: Para distinguir entre una respuesta y otra, hemos alterado levemente el código en cada uno de los servidores. Así, el servidor 1 enviará una tabla con la comuna `Alumnos 1` y el servidor 2 enviará una tabla con la comuna `Alumnos 2`.
 ![Prueba1 balanceador](./img/prueba1.png)
 
 ![Prueba2 balanceador](./img/prueba2.png)
