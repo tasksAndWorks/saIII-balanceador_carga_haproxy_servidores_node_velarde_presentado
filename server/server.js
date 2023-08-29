@@ -1,8 +1,6 @@
 
 const express = require('express');
 const mysql = require('mysql2');
-const path = require('path');
-const { getAlumno, getAlumnos, crearAlumno } = require('./src/database');
 
 
 const app = express();
@@ -57,37 +55,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}. Ir a http://localhost:${port}`);
 });
-
-
-
-/*
-// Ruta para consultar la base de datos
-app.get('/database', async (req, res) => {
-    try {
-        // Crear una conexión a la base de datos
-        const connection = mysql.createConnection(dbConfig);
-        console.log(connection)
-
-        // Realizar una consulta SQL (ejemplo: seleccionar todos los registros de una tabla llamada 'ejemplo')
-        const [rows, fields] = connection.execute('SELECT * FROM alumnos');
-
-        // Cerrar la conexión a la base de datos
-        connection.end();
-
-        // Enviar los resultados como respuesta HTTP
-        res.json(rows);
-        console.log(rows);
-    } catch (error) {
-        console.error('Error al conectar a la base de datos:', error);
-        res.status(500).send('Error al conectar a la base de datos');
-    }
-});
-
-
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
- */
