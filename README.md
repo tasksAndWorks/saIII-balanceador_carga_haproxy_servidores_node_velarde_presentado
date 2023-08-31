@@ -367,7 +367,7 @@ npm run dev
 Nos dirigimos a la barra de navegación de nuestro explorador favorito e ingresamos a: `http://localhost:8085`:
 Cada vez ue actualizamos la página, observamos que el balanceador hace su trabajo y nos envía las respuestas del servidor 1, luego, al actualizar nuevamente la página la respuesta que recibimos es la del servidor 2; y así sucesivamente de manera secuencial y alternada.
 
-* Nota: Para distinguir entre una respuesta y otra, hemos alterado levemente el código en cada uno de los servidores. Así, el servidor 1 enviará una tabla con la comuna `Alumnos 1` y el servidor 2 enviará una tabla con la comuna `Alumnos 2`.
+* Nota: Para distinguir entre una respuesta y otra, hemos alterado levemente el código en cada uno de los servidores. Así, el servidor 1 enviará una tabla con la comuna `Apellidos 1` y el servidor 2 enviará una tabla con la comuna `Apellidos 2`.
 
 ![Prueba1 balanceador](./img/prueba1.png)
 
